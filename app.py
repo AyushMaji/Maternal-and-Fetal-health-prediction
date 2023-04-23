@@ -66,7 +66,7 @@ def fetal_health():
     st.header('Fetal Growth from 4 To 40 Weeks')
     st.image(Image.open('images/f1.jpg'), caption='Fetal Health Prediction')
     st.sidebar.header('Fetal Data')
-    st.subheader('Fetal Data Stats')
+    st.subheader('Fetal Data')
     df = pd.read_csv("fetal_health.csv")
     st.dataframe(df)
     def user_report():
