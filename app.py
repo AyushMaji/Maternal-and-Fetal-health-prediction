@@ -45,6 +45,7 @@ def maternal_health() :
                  Gaussian NB Test Score	0.551724 ''')
     st.subheader('You can predict your health')
     st.write("s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled")
+    
     # OUTPUT
     rfc_model = pickle.load(open('rfc_maternal.pkl', 'rb'))
     result = rfc_model.predict(user_report())
@@ -122,11 +123,11 @@ def fetal_health():
     st.code(''' lgbm = create_model('lightgbm')
                    ''')
     st.subheader('All the data you entered: ')
-    user_report_data = user_report()
-   
-    # lgbm_model = pickle.load(open('lgbm_fetal.pkl', 'rb'))
-    # result = lgbm_model.predict(user_report())
-    result = 1
+   # user_report_data = user_report()
+ 
+    model = pickle.load(open('RF_fetal.pkl', 'rb'))
+    result = model.predict(user_report())
+
     # OUTPUT
     st.subheader('Your Report: ')
     if result == 1:
@@ -145,6 +146,8 @@ if my_page == 'Fetal Health Prediction':
     fetal_health()
 else:
     maternal_health()
+
+
 
 
 
